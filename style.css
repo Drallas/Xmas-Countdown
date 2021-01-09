@@ -29,6 +29,7 @@ html {
 
 /* Position text in the top-left corner */
 .toptext {
+  width: auto;
   position: absolute;
   top: 10%;
   left: 50%;
@@ -40,6 +41,7 @@ html {
 
 /* Position text in the bottom-left corner */
 .bottomtext {
+  width: auto;
   position: absolute;
   top: 90%;
   left: 50%;

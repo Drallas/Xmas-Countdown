@@ -1,0 +1,73 @@
+/* Set height to 100% for body and html to enable the background image to cover the whole page: */
+body,
+html {
+  height: 100%;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
+}
+
+.bgimg {
+  /* Background image */
+  background-image: url("https://static.pexels.com/photos/214238/pexels-photo-214238.jpeg");
+  /* Full-screen */
+  height: 100%;
+  /* Center the background image */
+  background-position: center;
+  /* Scale and zoom in the image */
+  background-size: cover;
+  /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
+  position: relative;
+  /* Add a white text color to all elements inside the .bgimg container */
+  color: white;
+  /* Add a font */
+  font-family: "Courier New", Courier, monospace;
+  /* Set the font-size to 25 pixels */
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Position text in the top-left corner */
+.topleft {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-family: "East Sea Dokdo", cursive;
+  font-size: 50px;
+}
+
+/* Position text in the bottom-left corner */
+.bottomleft {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-family: "East Sea Dokdo", cursive;
+  font-size: 50px;
+}
+
+/* Position text in the middle */
+.middle {
+  position: absolute;
+  width: 450px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(0, 128, 0, 0.4);
+  border-style: dotted;
+  border-width: 1px;
+  border-color: grey;
+  border-radius: 5px;
+  font-family: "Mountains of Christmas", cursive;
+  font-size: 30px;
+}
+
+/* Style the <hr> element */
+hr {
+  margin: auto;
+  width: 40%;
+}

@@ -28,40 +28,41 @@ html {
 }
 
 /* Position text in the top-left corner */
-.topleft {
+.toptext {
   position: absolute;
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: black;
   font-family: "East Sea Dokdo", cursive;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 /* Position text in the bottom-left corner */
-.bottomleft {
+.bottomtext {
   position: absolute;
-  top: 85%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: black;
   font-family: "East Sea Dokdo", cursive;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 /* Position text in the middle */
 .middle {
   position: absolute;
-  width: 450px;
+  width: 400px;
+  height: 375px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   background-color: rgba(0, 128, 0, 0.4);
   border-style: dotted;
-  border-width: 1px;
+  border-width: 2px;
   border-color: grey;
-  border-radius: 5px;
+  border-radius: 10px;
   font-family: "Mountains of Christmas", cursive;
   font-size: 30px;
 }

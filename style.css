@@ -41,7 +41,6 @@ html {
 
 /* Position text in the bottom-left corner */
 .bottomtext {
-  width: auto;
   position: absolute;
   top: 90%;
   left: 50%;
@@ -49,6 +48,7 @@ html {
   color: black;
   font-family: "East Sea Dokdo", cursive;
   font-size: 40px;
+  white-space: nowrap;
 }
 
 /* Position text in the middle */

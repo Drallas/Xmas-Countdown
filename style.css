@@ -29,14 +29,15 @@ html {
 
 /* Position text in the top-left corner */
 .toptext {
-  width: auto;
   position: absolute;
-  top: 10%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
+  top: 10%;
   color: black;
   font-family: "East Sea Dokdo", cursive;
-  font-size: 40px;
+  font-size: 30px;
+  white-space: nowrap;
 }
 
 /* Position text in the bottom-left corner */
@@ -47,8 +48,7 @@ html {
   transform: translate(-50%, -50%);
   color: black;
   font-family: "East Sea Dokdo", cursive;
-  font-size: 40px;
-  white-space: nowrap;
+  font-size: 30px;
 }
 
 /* Position text in the middle */

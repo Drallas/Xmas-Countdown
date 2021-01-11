@@ -21,7 +21,7 @@ var x = setInterval(function () {
 
   // Display the result in an element with id="weeks"
   document.getElementById("counter").innerHTML =
-    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    days + "d " + (hours -1) + "h " + minutes + "m " + seconds + "s ";
   document.getElementById("weeks").innerHTML = "nog " + weeks + " weken!";
 
   // Display the current time in id="current_date"

@@ -1,3 +1,3 @@
-# Aftellen tot de kerst
+# Countdown to Xmas
 
-Eenvoudige Javascript programma dat [aftelt](https://drallas.github.io/Bijna-Kerst/) tot de volgdende ketst! 
+Simple Javascript program that [counts down](https://drallas.github.io/Bijna-Kerst/) to the next xmas! 

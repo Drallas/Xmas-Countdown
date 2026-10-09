@@ -40,15 +40,41 @@ main {
   pointer-events: none;
 }
 
+/* Bokeh as radial gradients rather than filter: blur, which Safari clips to a visible rectangle */
 .bokeh {
   position: absolute;
   border-radius: 50%;
 }
-.b1 { top: 8%; left: 6%; width: 180px; height: 180px; background: var(--gold); opacity: 0.16; filter: blur(40px); }
-.b2 { top: 18%; right: 9%; width: 120px; height: 120px; background: var(--gold-light); opacity: 0.22; filter: blur(28px); }
-.b3 { bottom: 14%; left: 14%; width: 90px; height: 90px; background: var(--gold-light); opacity: 0.18; filter: blur(22px); }
-.b4 { bottom: 6%; right: 18%; width: 220px; height: 220px; background: #c0392b; opacity: 0.14; filter: blur(60px); }
-.glow { top: 46%; left: 48%; width: 520px; height: 520px; transform: translate(-50%, -50%); background: var(--pine-light); opacity: 0.7; filter: blur(80px); }
+.b1 { top: 4%; left: 2%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(233, 196, 106, 0.16), transparent 65%); }
+.b2 { top: 12%; right: 5%; width: 220px; height: 220px; background: radial-gradient(circle, rgba(244, 220, 154, 0.22), transparent 65%); }
+.b3 { bottom: 10%; left: 10%; width: 180px; height: 180px; background: radial-gradient(circle, rgba(244, 220, 154, 0.18), transparent 65%); }
+.b4 { bottom: 0; right: 12%; width: 380px; height: 380px; background: radial-gradient(circle, rgba(192, 57, 43, 0.14), transparent 65%); }
+.glow { top: 46%; left: 48%; width: 900px; height: 900px; transform: translate(-50%, -50%); background: radial-gradient(circle, rgba(29, 74, 53, 0.75), transparent 60%); }
+
+/* Santa's sleigh flying through the empty band below the countdown */
+.sleigh {
+  position: absolute;
+  bottom: 17%;
+  left: 50%;
+  width: min(520px, 80vw);
+  margin-left: max(-140px, -20vw);
+  color: var(--gold-light);
+  opacity: 0.22;
+  filter: blur(2px);
+  animation: fly 24s ease-in-out infinite alternate;
+}
+.sleigh svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@keyframes fly {
+  from { transform: translate(-40px, 12px); }
+  to { transform: translate(40px, -12px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sleigh { animation: none; }
+}
 
 .bauble {
   position: absolute;

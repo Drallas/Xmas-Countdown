@@ -212,6 +212,22 @@ h1 {
   text-wrap: balance;
 }
 
+/* Chinese: Fraunces has no CJK glyphs, and a slanted fallback looks wrong, so use an upright serif */
+:lang(zh) h1,
+:lang(zh) .christmas,
+:lang(zh) footer p {
+  font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+:lang(zh) h1 {
+  font-weight: 700;
+}
+:lang(zh) .eyebrow,
+:lang(zh) .tile .label {
+  letter-spacing: 0.12em;
+}
+
 .countdown {
   display: flex;
   flex-direction: column;

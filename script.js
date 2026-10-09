@@ -29,11 +29,21 @@ var TEXT = {
     christmas: "¡Ya está aquí! ¡Felices fiestas!",
     footer: "¡Pero hay gente que no puede esperar! ¡Hasta que vuelva la Navidad!",
     copyright: "Papá Noel. Todos los derechos reservados."
+  },
+  zh: {
+    locale: "zh-CN", htmlLang: "zh-CN", langLabel: "语言",
+    today: "今天是", headline: "圣诞将至", xmasHeadline: "圣诞快乐",
+    before: "还有 ", after: "，确切地说：",
+    week: ["周", "周"], day: ["天", "天"], and: "零 ",
+    units: [["天", "天"], ["小时", "小时"], ["分钟", "分钟"], ["秒", "秒"]],
+    christmas: "圣诞节到了！节日快乐！",
+    footer: "可是有些人就是等不及！等不及圣诞节再次到来！",
+    copyright: "圣诞老人。保留所有权利。"
   }
 };
 
 // Language from the link (?lang=en), then the saved choice, then the first browser language
-// that is nl, en or es; otherwise English
+// that is nl, en, es or zh; otherwise English
 function urlLanguage() {
   var match = /[?&]lang=([a-z]{2})/i.exec(location.search);
   var code = match && match[1].toLowerCase();
@@ -84,7 +94,7 @@ function update() {
   var today = new Date();
   var christmas = today.getMonth() == 11 && today.getDate() == 25;
 
-  document.documentElement.lang = lang;
+  document.documentElement.lang = t.htmlLang || lang;
   setText("current_date", t.today + today.toLocaleDateString(t.locale, { weekday: "long", day: "numeric", month: "long", year: "numeric" }));
   setText("headline", christmas ? t.xmasHeadline : t.headline);
   document.title = christmas ? t.xmasHeadline : t.headline;

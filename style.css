@@ -24,7 +24,7 @@ main {
   overflow: hidden;
   min-height: 100vh;
   box-sizing: border-box;
-  padding: 88px 24px 40px;
+  padding: 88px 24px 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -302,7 +302,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 36px;
 }
 footer p {
   margin: 0;
@@ -319,7 +319,7 @@ footer p {
 }
 
 .copyright {
-  font-size: 11px;
+  font-size: 9px;
   letter-spacing: 0.08em;
-  color: rgba(246, 239, 224, 0.4);
+  color: rgba(246, 239, 224, 0.26);
 }

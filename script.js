@@ -13,7 +13,6 @@ function getCountDownDate(today) {
 var x = setInterval(function () {
   // Get todays date and time
   var today = new Date();
-  var now = today.getTime();
 
   // Display the current time in id="current_date"
   document.getElementById("current_date").innerHTML = "Vandaag is het : " + today.toLocaleDateString();
@@ -25,8 +24,13 @@ var x = setInterval(function () {
     return;
   }
 
-  // Find the distance between now an the count down date
-  var distance = getCountDownDate(today) - now;
+  // Find the distance between now an the count down date, in wall-clock time:
+  // both sides as if they were UTC, so a DST change doesn't add or remove an hour.
+  var target = new Date(getCountDownDate(today));
+  var distance =
+    Date.UTC(target.getFullYear(), target.getMonth(), target.getDate()) -
+    Date.UTC(today.getFullYear(), today.getMonth(), today.getDate(),
+      today.getHours(), today.getMinutes(), today.getSeconds());
 
   // Time calculations for days, hours, minutes and seconds
   var weeks = Math.floor(distance / (1000 * 60 * 60 * 24) / 7);

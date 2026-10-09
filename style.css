@@ -1,77 +1,282 @@
-/* Set height to 100% for body and html to enable the background image to cover the whole page: */
-body,
-html {
-  height: 100%;
-  margin-left: 0px;
-  margin-top: 0px;
-  margin-right: 0px;
+:root {
+  --pine: #0f2a1f;
+  --pine-light: #1d4a35;
+  --cream: #f6efe0;
+  --gold: #e9c46a;
+  --gold-light: #f4dc9a;
+  --ribbon: #a8202e;
+  --display: "Fraunces", Georgia, serif;
+  --body: "Jost", Futura, "Century Gothic", sans-serif;
 }
 
-.bgimg {
-  /* Background image */
-  background-image: url("https://images.pexels.com/photos/714899/pexels-photo-714899.jpeg");
-  /* Full-screen */
-  height: 100%;
-  /* Center the background image */
-  background-position: center;
-  /* Scale and zoom in the image */
-  background-size: cover;
-  /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
+[hidden] {
+  display: none !important;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--pine);
+}
+
+main {
   position: relative;
-  /* Add a white text color to all elements inside the .bgimg container */
-  color: white;
-  /* Add a font */
-  font-family: "Courier New", Courier, monospace;
-  /* Set the font-size to 25 pixels */
-  font-size: 25px;
-  font-weight: bold;
+  overflow: hidden;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 88px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+  color: var(--cream);
+  font-family: var(--body);
 }
 
-/* Position text in the top-left corner */
-.toptext {
+/* Background: bokeh lights and two out-of-focus baubles */
+.decor {
   position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 10%;
-  color: black;
-  font-family: "East Sea Dokdo", cursive;
-  font-size: 30px;
+  inset: 0;
+  pointer-events: none;
+}
+
+.bokeh {
+  position: absolute;
+  border-radius: 50%;
+}
+.b1 { top: 8%; left: 6%; width: 180px; height: 180px; background: var(--gold); opacity: 0.16; filter: blur(40px); }
+.b2 { top: 18%; right: 9%; width: 120px; height: 120px; background: var(--gold-light); opacity: 0.22; filter: blur(28px); }
+.b3 { bottom: 14%; left: 14%; width: 90px; height: 90px; background: var(--gold-light); opacity: 0.18; filter: blur(22px); }
+.b4 { bottom: 6%; right: 18%; width: 220px; height: 220px; background: #c0392b; opacity: 0.14; filter: blur(60px); }
+.glow { top: 46%; left: 48%; width: 520px; height: 520px; transform: translate(-50%, -50%); background: var(--pine-light); opacity: 0.7; filter: blur(80px); }
+
+.bauble {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bauble .string {
+  width: 2px;
+  background: #c9a14a;
+}
+.bauble .ball {
+  border-radius: 50%;
+}
+
+.bauble-red {
+  right: 7%;
+  filter: blur(5px);
+  opacity: 0.85;
+}
+.bauble-red .string { height: 120px; }
+.bauble-red .cap {
+  width: 28px;
+  height: 18px;
+  border-radius: 4px 4px 2px 2px;
+  background: linear-gradient(90deg, #8a6a2a, var(--gold-light) 45%, #b8913e);
+}
+.bauble-red .ball {
+  width: 190px;
+  height: 190px;
+  margin-top: -4px;
+  background: radial-gradient(circle at 34% 30%, #ff9a8a 0%, #c0392b 22%, #8c1c2b 58%, #3a0a10 100%);
+  box-shadow: inset -18px -24px 40px rgba(0, 0, 0, 0.35), 0 0 60px rgba(192, 57, 43, 0.35);
+}
+
+.bauble-gold {
+  left: 9%;
+  filter: blur(11px);
+  opacity: 0.55;
+}
+.bauble-gold .string { height: 220px; }
+.bauble-gold .cap {
+  width: 32px;
+  height: 20px;
+  border-radius: 3px;
+  background: #c9a14a;
+}
+.bauble-gold .ball {
+  width: 218px;
+  height: 218px;
+  margin-top: -2px;
+  background: radial-gradient(circle at 34% 30%, #fff1c4 0%, var(--gold) 25%, #a67c2e 65%, #3d2a0a 100%);
+}
+
+/* Language switch */
+.lang-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid rgba(233, 196, 106, 0.35);
+  border-radius: 999px;
+}
+.lang-switch button {
+  min-width: 44px;
+  min-height: 36px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--gold);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+}
+.lang-switch button[aria-pressed="true"] {
+  background: var(--gold);
+  color: var(--pine);
+}
+.lang-switch button:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 2px;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  margin-top: 4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1100px;
   text-align: center;
 }
 
-/* Position text in the bottom-left corner */
-.bottomtext {
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: black;
-  font-family: "East Sea Dokdo", cursive;
-  font-size: 30px;
-  text-align: center;
+.title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
-/* Position text in the middle */
-.middle {
+.eyebrow {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 600;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  font-size: clamp(48px, 8.5vw, 112px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.weeks {
+  margin: 0;
+  font-size: clamp(19px, 2vw, 24px);
+  line-height: 1.4;
+  color: rgba(246, 239, 224, 0.9);
+  text-wrap: balance;
+}
+.weeks strong {
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.ribbon-row {
+  position: relative;
+  width: 100%;
+}
+.ribbon {
   position: absolute;
-  width: 400px;
-  height: 375px;
   top: 50%;
   left: 50%;
+  width: 100vw;
+  height: 22px;
   transform: translate(-50%, -50%);
-  text-align: center;
-  background-color: rgba(0, 128, 0, 0.4);
-  border-style: dotted;
-  border-width: 2px;
-  border-color: grey;
-  border-radius: 10px;
-  font-family: "Mountains of Christmas", cursive;
-  font-size: 30px;
+  background: var(--ribbon);
+  border-top: 1px solid rgba(233, 196, 106, 0.7);
+  border-bottom: 1px solid rgba(233, 196, 106, 0.7);
 }
 
-/* Style the <hr> element */
-hr {
-  margin: auto;
-  width: 40%;
+.tiles {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+}
+.tile {
+  flex: 1 1 140px;
+  max-width: 196px;
+  box-sizing: border-box;
+  padding: 22px 12px 20px;
+  border: 1px solid rgba(233, 196, 106, 0.55);
+  border-radius: 16px;
+  background: var(--pine);
+  box-shadow: 0 12px 28px rgba(4, 16, 10, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.tile .value {
+  font-family: var(--display);
+  font-weight: 500;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  font-size: clamp(48px, 6vw, 76px);
+  line-height: 0.9;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.tile .label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.christmas {
+  margin: 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(32px, 4.5vw, 52px);
+  color: var(--gold);
+}
+
+/* Closing line; reserves two lines so switching language doesn't shift the page */
+footer {
+  position: relative;
+  margin-top: auto;
+  max-width: 560px;
+}
+footer p {
+  margin: 0;
+  min-height: 3em;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  color: rgba(246, 239, 224, 0.72);
+  text-wrap: balance;
 }

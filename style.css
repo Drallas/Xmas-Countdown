@@ -146,25 +146,27 @@ main {
   border: 1px solid rgba(233, 196, 106, 0.35);
   border-radius: 999px;
 }
-.lang-switch button {
+.lang-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 44px;
   min-height: 36px;
+  box-sizing: border-box;
   padding: 0 10px;
-  border: 0;
   border-radius: 999px;
   background: transparent;
   color: var(--gold);
-  font-family: inherit;
+  text-decoration: none;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.12em;
-  cursor: pointer;
 }
-.lang-switch button[aria-pressed="true"] {
+.lang-switch a[aria-current="true"] {
   background: var(--gold);
   color: var(--pine);
 }
-.lang-switch button:focus-visible {
+.lang-switch a:focus-visible {
   outline: 2px solid var(--gold-light);
   outline-offset: 2px;
 }
@@ -297,6 +299,10 @@ footer {
   position: relative;
   margin-top: auto;
   max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 footer p {
   margin: 0;
@@ -310,4 +316,10 @@ footer p {
   text-align: center;
   color: rgba(246, 239, 224, 0.72);
   text-wrap: balance;
+}
+
+.copyright {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(246, 239, 224, 0.4);
 }

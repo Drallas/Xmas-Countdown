@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..700,100,0;1,9..144,400..700,100,1&family=Jost:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=5" />
+    <link rel="stylesheet" href="style.css?v=6" />
   </head>
 
   <body>
@@ -63,9 +63,9 @@
       </div>
 
       <div class="lang-switch" role="group" aria-label="Taal">
-        <button type="button" data-lang="nl" lang="nl" title="Nederlands">NL</button>
-        <button type="button" data-lang="en" lang="en" title="English">EN</button>
-        <button type="button" data-lang="es" lang="es" title="Español">ES</button>
+        <a href="?lang=nl" data-lang="nl" lang="nl" hreflang="nl" title="Nederlands">NL</a>
+        <a href="?lang=en" data-lang="en" lang="en" hreflang="en" title="English">EN</a>
+        <a href="?lang=es" data-lang="es" lang="es" hreflang="es" title="Español">ES</a>
       </div>
 
       <section class="hero">
@@ -92,9 +92,10 @@
 
       <footer>
         <p id="footer"></p>
+        <small id="copyright" class="copyright"></small>
       </footer>
     </main>
-    <script src="script.js?v=5"></script>
+    <script src="script.js?v=6"></script>
   </body>
 </html>
 

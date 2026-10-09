@@ -87,6 +87,7 @@ function update() {
   document.documentElement.lang = lang;
   setText("current_date", t.today + today.toLocaleDateString(t.locale, { weekday: "long", day: "numeric", month: "long", year: "numeric" }));
   setText("headline", christmas ? t.xmasHeadline : t.headline);
+  document.title = christmas ? t.xmasHeadline : t.headline;
   setText("christmas", t.christmas);
   setText("footer", t.footer);
   setText("copyright", "© " + today.getFullYear() + " " + t.copyright);

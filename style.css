@@ -51,7 +51,7 @@ main {
 .b4 { bottom: 0; right: 12%; width: 380px; height: 380px; background: radial-gradient(circle, rgba(192, 57, 43, 0.14), transparent 65%); }
 .glow { top: 46%; left: 48%; width: 900px; height: 900px; transform: translate(-50%, -50%); background: radial-gradient(circle, rgba(29, 74, 53, 0.75), transparent 60%); }
 
-/* Santa's sleigh: flies across the empty band below the countdown, left to right, then waits off-screen */
+/* Santa's sleigh: flies across the empty band below the countdown, left to right, then waits briefly off-screen */
 .sleigh {
   position: absolute;
   bottom: 17%;
@@ -61,7 +61,7 @@ main {
   opacity: 0.22;
   filter: blur(2px);
   transform: translate(-100%, 0);
-  animation: fly 30s linear infinite;
+  animation: fly 20s linear infinite;
 }
 .sleigh svg {
   display: block;
@@ -70,8 +70,8 @@ main {
 }
 @keyframes fly {
   0% { transform: translate(-100%, 30px); }
-  30% { transform: translate(calc(50vw - 50%), -10px); }
-  60%, 100% { transform: translate(100vw, -50px); }
+  46% { transform: translate(calc(50vw - 50%), -10px); }
+  92%, 100% { transform: translate(100vw, -50px); }
 }
 @media (prefers-reduced-motion: reduce) {
   .sleigh {

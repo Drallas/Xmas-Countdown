@@ -1,38 +1,71 @@
 <!DOCTYPE html>
-
-<html lang="en">
-  <title>Aftellen tot Kerstmis</title>
-
+<html lang="nl">
   <head>
     <meta charset="utf-8" />
-    <meta name="description" content="HTML5 Template" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="SitePoint" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <meta name="description" content="Aftellen tot Kerstmis, in het Nederlands, Engels en Spaans." />
+    <title>Bijna Kerst</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Mountains+of+Christmas:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..700,100,0;1,9..144,400..700,100,1&family=Jost:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <div class="bgimg">
-      <div class="toptext">
-        <p id="current_date"</p>
+    <main>
+      <div class="decor" aria-hidden="true">
+        <div class="bokeh b1"></div>
+        <div class="bokeh b2"></div>
+        <div class="bokeh b3"></div>
+        <div class="bokeh b4"></div>
+        <div class="bokeh glow"></div>
+        <div class="bauble bauble-red">
+          <div class="string"></div>
+          <div class="cap"></div>
+          <div class="ball"></div>
+        </div>
+        <div class="bauble bauble-gold">
+          <div class="string"></div>
+          <div class="cap"></div>
+          <div class="ball"></div>
+        </div>
       </div>
-      <div class="middle">
-        <h1>Bijna Kerst</h1>
-        <p id="weeks"></p>
-        Of
-        <hr />
-        <p id="counter"></p>
+
+      <div class="lang-switch" role="group" aria-label="Taal">
+        <button type="button" data-lang="nl" lang="nl" title="Nederlands">NL</button>
+        <button type="button" data-lang="en" lang="en" title="English">EN</button>
+        <button type="button" data-lang="es" lang="es" title="Español">ES</button>
       </div>
-      <div class="bottomtext">
-        <p>Maar sommige mensen kunnen niet wachten! Totdat het weer kerstmis is!</p>
-      </div>
-    </div>
+
+      <section class="hero">
+        <div class="title-group">
+          <p id="current_date" class="eyebrow"></p>
+          <h1 id="headline">Bijna Kerst</h1>
+        </div>
+
+        <div id="countdown" class="countdown">
+          <p class="weeks"><span id="before"></span><strong id="weeks"></strong><span id="after"></span></p>
+          <div class="ribbon-row">
+            <div class="ribbon" aria-hidden="true"></div>
+            <div id="counter" class="tiles" role="timer" aria-live="off">
+              <div class="tile"><span class="value" id="days"></span><span class="label" id="days_label"></span></div>
+              <div class="tile"><span class="value" id="hours"></span><span class="label" id="hours_label"></span></div>
+              <div class="tile"><span class="value" id="minutes"></span><span class="label" id="minutes_label"></span></div>
+              <div class="tile"><span class="value" id="seconds"></span><span class="label" id="seconds_label"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <p id="christmas" class="christmas" hidden></p>
+      </section>
+
+      <footer>
+        <p id="footer"></p>
+      </footer>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>

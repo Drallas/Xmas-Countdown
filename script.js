@@ -7,7 +7,8 @@ var TEXT = {
     week: ["week", "weken"], day: ["dag", "dagen"], and: " en ",
     units: [["dag", "dagen"], ["uur", "uur"], ["minuut", "minuten"], ["seconde", "seconden"]],
     christmas: "Het is zover. Fijne feestdagen!",
-    footer: "Maar sommige mensen kunnen niet wachten! Totdat het weer kerstmis is!"
+    footer: "Maar sommige mensen kunnen niet wachten! Totdat het weer kerstmis is!",
+    copyright: "De Kerstman. Alle rechten voorbehouden."
   },
   en: {
     locale: "en-GB", langLabel: "Language",
@@ -16,7 +17,8 @@ var TEXT = {
     week: ["week", "weeks"], day: ["day", "days"], and: " and ",
     units: [["day", "days"], ["hour", "hours"], ["minute", "minutes"], ["second", "seconds"]],
     christmas: "It’s here. Happy holidays!",
-    footer: "But some people just can’t wait! Until it’s Christmas again!"
+    footer: "But some people just can’t wait! Until it’s Christmas again!",
+    copyright: "Santa Claus. All rights reserved."
   },
   es: {
     locale: "es-ES", langLabel: "Idioma",
@@ -25,12 +27,22 @@ var TEXT = {
     week: ["semana", "semanas"], day: ["día", "días"], and: " y ",
     units: [["día", "días"], ["hora", "horas"], ["minuto", "minutos"], ["segundo", "segundos"]],
     christmas: "¡Ya está aquí! ¡Felices fiestas!",
-    footer: "¡Pero hay gente que no puede esperar! ¡Hasta que vuelva la Navidad!"
+    footer: "¡Pero hay gente que no puede esperar! ¡Hasta que vuelva la Navidad!",
+    copyright: "Papá Noel. Todos los derechos reservados."
   }
 };
 
-// Saved choice first, then the first browser language that is nl, en or es; otherwise English
+// Language from the link (?lang=en), then the saved choice, then the first browser language
+// that is nl, en or es; otherwise English
+function urlLanguage() {
+  var match = /[?&]lang=([a-z]{2})/i.exec(location.search);
+  var code = match && match[1].toLowerCase();
+  return TEXT[code] ? code : null;
+}
+
 function detectLanguage() {
+  var fromUrl = urlLanguage();
+  if (fromUrl) return fromUrl;
   try {
     var saved = localStorage.getItem("lang");
     if (TEXT[saved]) return saved;
@@ -77,6 +89,7 @@ function update() {
   setText("headline", christmas ? t.xmasHeadline : t.headline);
   setText("christmas", t.christmas);
   setText("footer", t.footer);
+  setText("copyright", "© " + today.getFullYear() + " " + t.copyright);
   document.getElementById("countdown").hidden = christmas;
   document.getElementById("christmas").hidden = !christmas;
   if (christmas) return;
@@ -109,25 +122,35 @@ function update() {
 }
 
 function markLanguage() {
-  var buttons = document.querySelectorAll(".lang-switch button");
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].setAttribute("aria-pressed", buttons[i].dataset.lang == lang ? "true" : "false");
+  var links = document.querySelectorAll(".lang-switch a");
+  for (var i = 0; i < links.length; i++) {
+    if (links[i].dataset.lang == lang) {
+      links[i].setAttribute("aria-current", "true");
+    } else {
+      links[i].removeAttribute("aria-current");
+    }
   }
   document.querySelector(".lang-switch").setAttribute("aria-label", TEXT[lang].langLabel);
 }
 
+// Switch without reloading, but keep the address bar on the shareable ?lang= link
 function setLanguage(code) {
   lang = code;
   try {
     localStorage.setItem("lang", code);
+  } catch (e) {}
+  try {
+    history.replaceState(null, "", "?lang=" + code + location.hash);
   } catch (e) {}
   markLanguage();
   update();
 }
 
 document.querySelector(".lang-switch").addEventListener("click", function (e) {
-  var button = e.target.closest("button[data-lang]");
-  if (button) setLanguage(button.dataset.lang);
+  var link = e.target.closest("a[data-lang]");
+  if (!link || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  e.preventDefault();
+  setLanguage(link.dataset.lang);
 });
 
 // Show the page in the detected language without saving it as a choice
